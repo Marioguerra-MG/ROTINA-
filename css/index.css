@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(206, 193, 238);
+}
+
+.conteudo{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px 8px 0 0;
+    padding-top: 50px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.10);
+}
+
+.camposDeAcao{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+#tarefa{
+    width: 500px;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgb(41, 41, 41);
+    padding-left: 12px;
+}
+
+#adicionar{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(127, 77, 255);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+tbody{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+tr{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+td{
+    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+td:last-child{
+    border-bottom: none;
+    text-align: center;
+}
+
+.finalizar, .acao{
+        text-align: right;
+}
