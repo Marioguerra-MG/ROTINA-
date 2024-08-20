@@ -1,23 +1,62 @@
-document.getElementById('adicionar'),addEventListener('click', function(event){
-    event.preventDefault();
+const mTarefa = document.querySelector('#tarefa');
+const mAdicionar = document.querySelector('#adicionar');
+const tbody = document.querySelector("tbody");
 
-const tarefaInput = document.getElementById('tarefa');
+let bTarefa = [];
+let id;
 
-const tarefaTexto = tarefaInput.value.trim();
+function inserirTarefa (item, index){
+    let tr = document.createElement("tr");
 
-if (tarefaTexto !== ""){
-    const novaLinha = document.createElement('tr');
+    tr.innerHTML = `
+        <td>${item.tarefa}</td>
 
-
+        <td class="acao">
+            <button id="deletar" onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+        </td>
     
-    const novaCelula = document.createElement('td');
-    novaCelula.textContent=tarefaTexto;
+    `;
 
-    novaLinha.appendChild(novaCelula);
+    tbody.appendChild(tr)
 
-    document.querySelector('tbody').appendChild(novaLinha);
-
-    tarefaInput.value = "";
 }
 
-});    
+mAdicionar.onclick = e =>{
+    if(mTarefa.value.trim() === ''){
+        return;
+    }
+
+    
+    e.preventDefault();
+
+    if(id !==undefined){
+        bTarefa[id] = {'tarefa': mTarefa.value}
+
+    }else{
+        bTarefa.push({'tarefa' : mTarefa.value});
+    }
+
+    mTarefa.value='';
+    id= undefined;
+
+    tbody.innerHTML = '';
+    bTarefa.forEach(inserirTarefa);
+}
+
+
+function deleteItem(index){
+    bTarefa.splice(index, 1);
+    tbody.innerHTML='';
+    bTarefa.forEach(inserirTarefa);
+
+}
+
+
+
+
+
+
+
+
+
+
