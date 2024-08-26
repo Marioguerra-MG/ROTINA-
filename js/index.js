@@ -12,6 +12,11 @@ let id;
 function inserirTarefa (item, index){
     let tr = document.createElement("tr");
 
+
+    if (item.concluida){
+        tr.classList.add('concluida');
+    }
+
     tr.innerHTML = `
 
         <td class="acao">
@@ -60,6 +65,14 @@ mAdicionar.onclick = e =>{
 
 function deleteItem(index){
     bTarefa.splice(index, 1);
+    tbody.innerHTML='';
+    bTarefa.forEach(inserirTarefa);
+    setItensBD(bTarefa);
+
+}
+
+function concluirItem (index){
+    bTarefa[index].concluida= !bTarefa[index].concluida;
     tbody.innerHTML='';
     bTarefa.forEach(inserirTarefa);
     setItensBD(bTarefa);
