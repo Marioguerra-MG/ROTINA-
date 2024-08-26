@@ -2,18 +2,31 @@ const mTarefa = document.querySelector('#tarefa');
 const mAdicionar = document.querySelector('#adicionar');
 const tbody = document.querySelector("tbody");
 
-let bTarefa = [];
+const getItensBD = () => JSON.parse(localStorage.getItem('bdfunc')) ?? []
+const setItensBD = (itens) => localStorage.setItem('bdfunc', JSON.stringify(itens))
+
+let bTarefa = getItensBD();
 let id;
+
 
 function inserirTarefa (item, index){
     let tr = document.createElement("tr");
 
     tr.innerHTML = `
+
+        <td class="acao">
+            <button id="concluir" onclick="concluirItem(${index})"><i class="fa-regular fa-circle-check"></i></button>
+        </td>
+
+
         <td>${item.tarefa}</td>
+
 
         <td class="acao">
             <button id="deletar" onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
         </td>
+
+     
     
     `;
 
@@ -41,6 +54,7 @@ mAdicionar.onclick = e =>{
 
     tbody.innerHTML = '';
     bTarefa.forEach(inserirTarefa);
+    setItensBD(bTarefa);
 }
 
 
@@ -48,8 +62,13 @@ function deleteItem(index){
     bTarefa.splice(index, 1);
     tbody.innerHTML='';
     bTarefa.forEach(inserirTarefa);
+    setItensBD(bTarefa);
 
 }
+
+bTarefa.forEach(inserirTarefa);
+
+
 
 
 
