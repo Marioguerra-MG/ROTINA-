@@ -122,3 +122,12 @@ td button{
     background-color: rgba(102, 233, 90, 0.801);
     
 }
+
+@media(max-width: 720px) {
+
+    #tarefa{
+        width: 80%;
+    }
+
+    
+}
