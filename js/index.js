@@ -41,10 +41,11 @@ function inserirTarefa (item, index){
 
 mAdicionar.onclick = e =>{
     if(mTarefa.value.trim() === ''){
+        alert("Por favor, preencha o campo vazio antes de continuar.");
         return;
     }
 
-    
+ 
     e.preventDefault();
 
     if(id !==undefined){
